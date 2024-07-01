@@ -10,6 +10,8 @@ import com.estg.core.ContainerType;
 import com.estg.core.exceptions.AidBoxException;
 import com.estg.core.exceptions.ContainerException;
 
+import java.util.Objects;
+
 
 public class AidBoxImp implements AidBox {
 
@@ -117,6 +119,26 @@ public class AidBoxImp implements AidBox {
                 this.nContainers--;
             }
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getCode());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof AidBoxImp)) {
+            return false;
+        }
+
+        AidBoxImp aidBoxImp = (AidBoxImp) o;
+
+        return this.code.equals(aidBoxImp.code);
     }
 
     @Override
