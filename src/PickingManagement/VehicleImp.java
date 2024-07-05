@@ -14,6 +14,7 @@ public class VehicleImp implements Vehicle {
 
     private final int ARRAY_EXPANSION_FACTOR = 2;
 
+    private boolean isActive = true;
     private String code;
 
     private int nContainers = 0;
@@ -21,6 +22,14 @@ public class VehicleImp implements Vehicle {
 
     public VehicleImp(String code) {
         this.code = code;
+    }
+
+    public boolean isActive() {
+        return this.isActive;
+    }
+
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
     @Override
