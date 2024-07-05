@@ -12,6 +12,7 @@ import com.estg.core.Measurement;
 import com.estg.core.exceptions.MeasurementException;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class ContainerImp implements Container {
 
@@ -120,6 +121,25 @@ public class ContainerImp implements Container {
         this.nMeasurements++;
 
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getCode());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof ContainerImp)) {
+            return false;
+        }
+
+        ContainerImp that = (ContainerImp) o;
+        return Objects.equals(getCode(), that.getCode());
     }
 
     @Override
